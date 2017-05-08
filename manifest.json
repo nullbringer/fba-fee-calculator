@@ -22,18 +22,12 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
     
-    "permissions": [ "activeTab", "http://*/*", "https://*/*" ],
-    
+  "permissions": [ "activeTab", "http://*/*", "https://*/*", "tabs" ],    
     
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "js/jquery/jquery.js",
-        "src/inject/inject.js"
-      ]
+      "matches": ["*://www.amazon.com/*"],
+      "js": ["js/jquery/jquery.js","src/inject/inject.js"]
     }
   ]
 }

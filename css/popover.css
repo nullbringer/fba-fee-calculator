@@ -29,7 +29,15 @@ h1 {
     margin-left: 5%;
 }
 
-
+#show-error-msg{
+    display: none;
+    margin-top: 85px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ce728a;
+    
+}
 
 
 #loader {

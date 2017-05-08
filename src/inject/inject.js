@@ -9,14 +9,17 @@ chrome.runtime.sendMessage({
 chrome.runtime.onMessage.addListener(function (msg, sender, response) {
     
   if ((msg.from === 'popup') && (msg.subject === 'DOMInfo')) {
-    
-       var _asin = jQuery('.author').find('a').text(); 
+      
+       var _asin = jQuery('#ASIN').val(); 
       
       if(_asin){
-            
+          
             getAmazonProductDetails(_asin,response);
             return true; //to make sendResponse asynchronous
             
+        }else {
+            
+            response({error:"Please navigate to product page to use this extension."})
         }
       
   }
@@ -26,15 +29,15 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
 function getAmazonProductDetails(_asin,callback){
         
     jQuery.ajax({
-        url: "https://reqres.in/api/users",
+        url: "https://www.fbastores.com/dkfd983mgflsd9.php",
         type: "POST",
         data: {
-            name: _asin,
-            movies: ["Hello World", "Role Models"]
+            name: _asin
         },
         success: function(response){
             
-            callback({productDetails: response});
+            
+            callback({productDetails: JSON.parse(response)});
                    
             
         }
