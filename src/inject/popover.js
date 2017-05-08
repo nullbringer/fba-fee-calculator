@@ -35,12 +35,15 @@ window.addEventListener('DOMContentLoaded', function () {
       if(hostname=='www.amazon.com'){
           
           chrome.tabs.sendMessage(tabs[0].id,{from: 'popup', subject: 'DOMInfo'}, function(response){
+              if(!response){
+                  showError("Something went wrong! Please reload the page!");                  
+              }
               
-              if(response.error){
+              else if(response.error){
                   showError(response.error);
               }
-              else{
-                  
+              
+              else{                  
                   setDOMInfo(response.productDetails);
               }
               
@@ -52,8 +55,6 @@ window.addEventListener('DOMContentLoaded', function () {
           showError('Please visit www.amazon.com for using this extension.');
           
       }
-      
-    
       
       
   });
