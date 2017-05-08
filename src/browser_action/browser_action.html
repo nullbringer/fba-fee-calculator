@@ -1,52 +1,26 @@
 <!doctype html>
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-        border: 2px solid #355166;
-	}
-	h1 {
-		font-size: 2em;
-	}
-    
-    .logo{
-        background: url('../../icons/logo.png');
-        height: 120px;
-            
-    }
-    .clear{
-        clear: both;
-    }
-    
-    .details{
-        margin-top: 10px;
-    }
-    
-    .details > div{
-        width: 45%;
-        float: left;
-        margin-left: 5%;
-    }
-</style>
 
+<link rel="stylesheet" type="text/css" href="../../css/popover.css">
 <script src="../inject/popover.js"></script>
 
 <div id="mainPopup">
 
     <div class="logo"></div>
     
-    <div class="details">
+    <div id="loader">Loading...</div>
+    
+    
+    <div id="details">
+        
         <div>Item Price</div>
-        <div>$273.22</div>
+        <div id="name">$273.22</div>
         
         <div>Selling on Amazon Fees</div>
-        <div>$13.22</div>
+        <div id="itemPrice">$13.22</div>
         
         
         <div>Fulfillment Cost</div>
-        <div>$5.22</div>
+        <div  id="fulCost">$5.22</div>
         
         
         <div>Net Profit</div>
