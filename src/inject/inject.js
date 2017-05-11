@@ -10,35 +10,57 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
     
   if ((msg.from === 'popup') && (msg.subject === 'DOMInfo')) {
       
-       var _asin = jQuery('#ASIN').val(); 
+      var asin = jQuery('#ASIN').val(); 
       
-      if(_asin){
+      if (asin) {
           
-            getAmazonProductDetails(_asin,response);
+            getAmazonProductDetails(asin,response);
             return true; //to make sendResponse asynchronous
             
-        }else {
+        } else {
             
-            response({error:"Please navigate to product page to use this extension."})
+            response({error : "Please navigate to product page to use this extension."})
         }
       
   }
 });
 
 
-function getAmazonProductDetails(_asin,callback){
+function getAmazonProductDetails(asin,callback){
+    
+    var payload = JSON.stringify({"asin": asin});
         
     jQuery.ajax({
-        url: "https://www.fbastores.com/dkfd983mgflsd9.php",
+        url: "xxx.com/api",
         type: "POST",
-        data: {
-            name: _asin
-        },
-        success: function(response){
+        data: payload,
+        success: function (response) {    
             
+        /*            
+            {
+              "data": {
+                "success": "true",
+                "asin": "B01LYT95XR",
+                "itemName": "Apple iPhone 7 Unlocked CDMA/GSM 32GB A1660 MNAC2LL/A - US Version (Black)",
+                "itemPrice": 719,
+                "amazonFees": 55,
+                "fulfillCost": 3
+              }
+            }
+        */
             
-            callback({productDetails: JSON.parse(response)});
-                   
+            var res = JSON.parse(response);
+            
+            if(res.data.success === 'true'){
+                
+                callback({productDetails: res.data});   
+                
+            } else {
+                
+                callback({error : res.data.error})
+            }
+                        
+                               
             
         }
     });
