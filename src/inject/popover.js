@@ -1,12 +1,13 @@
 function setDOMInfo(productDetails) {
 
+    /*
     document.getElementById('asin').textContent   = productDetails.asin;
     document.getElementById('itemName').textContent  = productDetails.itemName;
     document.getElementById('itemPrice').textContent = productDetails.itemPrice;
     document.getElementById('amazonFees').textContent = productDetails.amazonFees;
     document.getElementById('fulfillCost').textContent = productDetails.fulfillCost;
     document.getElementById('netProfit').textContent = productDetails.netProfit;
-
+*/
     document.getElementById('loader').style.display = "none"; 
     document.getElementById('details').style.display = "block";    
     
@@ -49,5 +50,41 @@ window.addEventListener('DOMContentLoaded', function () {
       }      
       
   });
+    
+    
+    
+    
+    
+    
+ document.getElementById("productCostInput").addEventListener("keypress", function(){
+    
+    var productCost = Number(document.getElementById("productCostInput").value);
+    
+    if(!Number.isNaN(productCost)){
+        
+        calculateWithProductCost(productCost);
+    }
+    
+});   
+    
+    
+    
+    
 });
+
+
+
+
+function calculateWithProductCost(productCost){
+    var revenue = Number(document.getElementById("revenue").textContent);
+    //var netProfit = Number(document.getElementById("netProfit"));
+    //var netMargin = Number(document.getElementById("netMargin"));
+    
+    var newNetProfit = revenue - productCost;
+    
+    document.getElementById("netProfit").textContent = netProfit;
+
+    
+
+}
 
