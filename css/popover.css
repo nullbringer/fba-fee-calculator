@@ -96,10 +96,10 @@ section.loss{
 	border:0;
 }
 
-div.green{
+section.profit > div{
 	color: #27ae60;
 }
-div.red{
+section.loss > div {
 	color: #c0392b;
 
 }
