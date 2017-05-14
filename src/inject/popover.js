@@ -3,10 +3,10 @@ function setDOMInfo(productDetails) {
     document.getElementById('itemName').textContent  = productDetails.itemName;
     document.getElementById('asin').textContent   = productDetails.asin;    
     document.getElementById('salePrice').textContent = productDetails.saleprice;    
-    document.getElementById('prodDimensions').textContent = Number(productDetails.itemdimension.Length)/100 + " X "+
-                                                            Number(productDetails.itemdimension.Width)/100 + " X "+
-                                                            Number(productDetails.itemdimension.Height)/100;    
-    document.getElementById('unitWeight').textContent = productDetails.saleprice;   
+    document.getElementById('prodDimensions').textContent = productDetails.itemdimension.Length + " X "+
+                                                            productDetails.itemdimension.Width + " X "+
+                                                            productDetails.itemdimension.Height;    
+    document.getElementById('unitWeight').textContent = productDetails.itemweight;   
     document.getElementById('amazonFees').textContent = productDetails.amazonFees || 0;
     document.getElementById('fulfillCost').textContent = productDetails.fulfillCost || 0;
     document.getElementById('revenue').textContent = productDetails.saleprice - productDetails.amazonFees - productDetails.fulfillCost;
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function () {
             calculateWithProductCost(productCost);
         } else {       
             document.getElementById("productCostInput").value = 0.00;
-            calculateWithProductCost(productCost);
+            calculateWithProductCost(0);
         }
 
     });   
