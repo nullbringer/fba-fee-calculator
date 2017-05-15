@@ -1,0 +1,12 @@
+{
+    "appName": {
+        "message": "Fba Fee Calculator"
+    },
+    "appDesc": {
+        "message": "This is a Chrome Extension to view FBA fees for a particular Amazon Product"
+    },
+
+    "defaultTitle":{
+        "message": "Fba Fee Calculator"
+    }
+}

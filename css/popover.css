@@ -79,7 +79,7 @@ h1 {
 
 
 span.tooltip{
-	background: url(https://images-na.ssl-images-amazon.com/images/G/01/fba/calc/helpBW.png) no-repeat scroll right center rgba(0,0,0,0);
+	background: url('../../icons//helpBW.png') no-repeat scroll right center rgba(0,0,0,0);
     cursor: help;
     padding-right: 18px;
 	margin-left: 5px;

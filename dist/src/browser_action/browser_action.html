@@ -1,0 +1,80 @@
+<!doctype html>
+
+<link rel="stylesheet" type="text/css" href="../../css/popover.css">
+<script src="../inject/popover.js"></script>
+
+<div id="mainPopup">
+
+    <div class="logo"></div>
+    
+    <div id="loader">Loading...</div>
+    
+    
+        <div id="details">
+	
+		<section class="product-details">
+				   
+			
+			<div id="itemName"></div>
+			
+			<label>ASIN</label>
+			<div id="asin"></div>
+			
+			<label>Sale Price</label>
+            <div>$<span id="salePrice"></span></div>
+			
+			<label>Dimensions</label>
+            <div><span id="prodDimensions"></span> inches</div>
+			
+			
+			<label>Unit Weight</label>
+            <div><span id="unitWeight"></span> pounds</div>
+			
+		</section>
+		
+		<section>
+        
+			<label>Referral Fees <span class="tooltip" data-balloon-length="medium" data-balloon="To sell on the Amazon marketplace, you pay Referral Fees and Closing Fees."></span></label>
+			<div>$<span id="amazonFees"></span></div>
+			
+			
+			<label>Fulfillment Cost <span class="tooltip" data-balloon-length="medium" data-balloon="Fulfillment by Amazon fees are calculated based on the dimensions and weight of the item."></span></label>
+			<div>$<span id="fulfillCost"></span></div>
+		
+		
+		</section>
+		
+		<section>
+        
+			<label>Seller Proceeds <span class="tooltip" data-balloon-length="medium" data-balloon="Total Revenue minus Selling on Amazon Fees, minus Total Fulfillment Costs."></span></label>
+			<div>$<span id="revenue"></span></div>
+			
+			
+			<label>Product Cost <span class="tooltip" data-balloon-length="medium" data-balloon="The cost of acquiring the product from your supplier, or the cost required to manufacture/produce a single unit."></span></label>
+			<div>$<input id="productCostInput" maxlength="8" type="text" value="0.00"/></div>
+		
+		
+		</section>
+		
+
+        <section id="net-section">
+        
+			<label>Net Profit</label>
+            <div>$<span id="netProfit"></span></div>   
+			
+			
+			<label>Net Margin</label>
+            <div>$<span id="netMargin"></span>%</div>   
+
+
+		</section>		
+        
+        
+        
+        
+    </div>
+    
+    <div id="show-error-msg"></div>
+    
+    
+</div>

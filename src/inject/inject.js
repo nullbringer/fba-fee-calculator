@@ -31,26 +31,13 @@ function getAmazonProductDetails(asin,callback){
     var payload = JSON.stringify({"asin": asin});
         
     jQuery.ajax({
-        url: "xxx.com/api",
+        url: "xxx.com/api/",
         type: "POST",
         data: payload,
         success: function (response) {    
-            
-        /*            
-            {
-              "data": {
-                "success": "true",
-                "asin": "B01LYT95XR",
-                "itemName": "Apple iPhone 7 Unlocked CDMA/GSM 32GB A1660 MNAC2LL/A - US Version (Black)",
-                "itemPrice": 719,
-                "amazonFees": 55,
-                "fulfillCost": 3
-              }
-            }
-        */
-            
-            var res = JSON.parse(response);
-            
+                        
+            var res = JSON.parse(response);            
+                
             if(res.data.success === 'true'){
                 
                 callback({productDetails: res.data});   

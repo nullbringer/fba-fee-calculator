@@ -1,0 +1,34 @@
+{
+  "name": "fba-fee-calculator",
+  "version": "1.0.0",
+  "description": "A Chrome Extension to calculate FBA fees for a particular Amazon Product",
+  "main": "src\\bg\\background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbangeek/fba-fee-calculator.git"
+  },
+  "keywords": [
+    "Amazon",
+    "Amazon",
+    "Fba",
+    "Chrome",
+    "Extension"
+  ],
+  "author": "urbangeek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/urbangeek/fba-fee-calculator/issues"
+  },
+  "homepage": "https://github.com/urbangeek/fba-fee-calculator#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-minify": "^1.0.0",
+    "gulp-uglify": "^2.1.2",
+    "pump": "^1.0.2"
+  }
+}
