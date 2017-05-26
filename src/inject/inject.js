@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
             
         } else {
             
-            response({error : "Please navigate to product page to use this extension."})
+            response({error : chrome.i18n.getMessage("navigateToProductPage")})
         }
       
   }
@@ -29,7 +29,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
 function getAmazonProductDetails(asin,callback){
     
     var payload = JSON.stringify({"asin": asin});
-        
+    
     jQuery.ajax({
         url: "xxx.com/api/",
         type: "POST",
@@ -46,9 +46,7 @@ function getAmazonProductDetails(asin,callback){
                 
                 callback({error : res.data.error})
             }
-                        
-                               
-            
+             
         }
     });
     

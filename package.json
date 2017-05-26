@@ -27,7 +27,6 @@
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^3.2.0",
-    "gulp-minify": "^1.0.0",
     "gulp-uglify": "^2.1.2",
     "pump": "^1.0.2"
   }

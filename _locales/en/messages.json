@@ -8,5 +8,17 @@
 
     "defaultTitle":{
         "message": "Fba Fee Calculator"
+    },
+    "navigateToHomeSite":{
+        "message": "Please visit www.amazon.com for using this extension."
+    },
+    "navigateToProductPage":{
+        "message": "Please navigate to product page to use this extension."
+    },
+    "generalExceptionMsg":{
+        "message": "Something went wrong! Please reload the page!"
+    },
+    "dataExceptionMsg":{
+        "message": "Required data is not provided by Amazon!"
     }
 }

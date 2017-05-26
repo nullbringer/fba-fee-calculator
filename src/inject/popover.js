@@ -1,5 +1,13 @@
 function setDOMInfo(productDetails) {
     
+    if(!productDetails.itemName || !productDetails.asin || !productDetails.saleprice || !productDetails.amazonFees || !productDetails.fulfillCost){
+        
+        showError(chrome.i18n.getMessage("dataExceptionMsg")); 
+        console.log(productDetails);
+        return;
+        
+    }
+    
     document.getElementById('itemName').textContent  = productDetails.itemName;
     document.getElementById('asin').textContent   = productDetails.asin;    
     document.getElementById('salePrice').textContent = productDetails.saleprice;    
@@ -7,9 +15,9 @@ function setDOMInfo(productDetails) {
                                                             productDetails.itemdimension.Width + " X "+
                                                             productDetails.itemdimension.Height;    
     document.getElementById('unitWeight').textContent = productDetails.itemweight;   
-    document.getElementById('amazonFees').textContent = productDetails.amazonFees || 0;
-    document.getElementById('fulfillCost').textContent = productDetails.fulfillCost || 0;
-    document.getElementById('revenue').textContent = productDetails.saleprice - productDetails.amazonFees - productDetails.fulfillCost;
+    document.getElementById('amazonFees').textContent = productDetails.amazonFees;
+    document.getElementById('fulfillCost').textContent = productDetails.fulfillCost;
+    document.getElementById('revenue').textContent = (productDetails.saleprice - productDetails.amazonFees - productDetails.fulfillCost).toFixed(2);
     
     calculateWithProductCost(0.00);
     
@@ -35,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (hostname === 'www.amazon.com'){          
           chrome.tabs.sendMessage(tabs[0].id, {from: 'popup', subject: 'DOMInfo'}, function (response) {              
               if (!response) {
-                  showError("Something went wrong! Please reload the page!");                  
+                  showError(chrome.i18n.getMessage("generalExceptionMsg"));                  
               } else if (response.error) {
                   showError(response.error);
               } else {                  
@@ -43,8 +51,9 @@ window.addEventListener('DOMContentLoaded', function () {
               }  
           });    
 
-      } else {
-          showError('Please visit www.amazon.com for using this extension.');          
+      } else {         
+          
+          showError(chrome.i18n.getMessage("navigateToHomeSite"));          
       }      
 
     });
