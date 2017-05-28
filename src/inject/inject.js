@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
             
         } else {
             
-            response({error : chrome.i18n.getMessage("navigateToProductPage")})
+            response({error : chrome.i18n.getMessage("navigateToProductPage")});
         }
       
   }
@@ -34,19 +34,31 @@ function getAmazonProductDetails(asin,callback){
         url: "xxx.com/api/",
         type: "POST",
         data: payload,
-        success: function (response) {    
+        success: function (response) { 
+            
                         
-            var res = JSON.parse(response);            
+            try {
+                var res = JSON.parse(response);            
                 
-            if(res.data.success === 'true'){
+                if(res.data.success === 'true'){
+
+                    callback({productDetails: res.data});   
+
+                } else {
+
+                    callback({error : res.data.error})
+                }
                 
-                callback({productDetails: res.data});   
+            } catch (e) {
                 
-            } else {
-                
-                callback({error : res.data.error})
+                response({error : chrome.i18n.getMessage("generalExceptionMsg")});
             }
-             
+                        
+                               
+            
+        },
+        error: function (response){
+            response({error : chrome.i18n.getMessage("generalExceptionMsg")});     
         }
     });
     
