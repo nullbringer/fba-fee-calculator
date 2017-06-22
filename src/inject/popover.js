@@ -21,7 +21,8 @@ function setDOMInfo(productDetails) {
     document.getElementById('fulfillCost').textContent = productDetails.fulfillCost;
     document.getElementById('revenue').textContent = (productItemPrice - productDetails.amazonFees - productDetails.fulfillCost).toFixed(2);
     
-    calculateWithProductCost(0.00);
+    document.getElementById("productCostInput").value = productDetails.productCost;    
+    calculateWithProductCost(productDetails.productCost);
     
     document.getElementById('loader').style.display = "none"; 
     document.getElementById('details').style.display = "block";    
@@ -41,18 +42,24 @@ window.addEventListener('DOMContentLoaded', function () {
 
     chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {        
 
-      var hostname = (new URL(tabs[0].url)).hostname;
-      if (hostname === 'www.amazon.com'){          
-          chrome.tabs.sendMessage(tabs[0].id, {from: 'popup', subject: 'DOMInfo'}, function (response) {              
-              if (!response) {
-                  showError(chrome.i18n.getMessage("generalExceptionMsg"));                  
-              } else if (response.error) {
-                  showError(response.error);
-              } else {                  
-                  setDOMInfo(response.productDetails);
-              }  
-          });    
+      var tabUrl = (new URL(tabs[0].url));
+        
+      if (tabUrl.hostname === 'www.amazon.com'){          
+            
+           getProductDetails(tabs[0]);          
+          
 
+      } else if(tabUrl.hostname === 'fmafront.sellwithamazon.com'){
+          
+          var pathArray = tabUrl.pathname.split( '/' );
+          
+          if(pathArray[1] && pathArray[1] === "product"){
+              getProductDetails(tabs[0]);     
+              
+          } else {
+              showError(chrome.i18n.getMessage("navigateToProductPage"));     
+          }          
+          
       } else {         
           
           showError(chrome.i18n.getMessage("navigateToHomeSite"));          
@@ -78,6 +85,23 @@ window.addEventListener('DOMContentLoaded', function () {
         
 });
 
+
+function getProductDetails(tab){
+    
+    
+    chrome.tabs.sendMessage(tab.id, {from: 'popup', subject: 'DOMInfo'}, function (response) {              
+              if (!response) {
+                  showError(chrome.i18n.getMessage("generalExceptionMsg"));                  
+              } else if (response.error) {
+                  showError(response.error);
+              } else {                  
+                  setDOMInfo(response.productDetails);
+              }  
+          }); 
+    
+    
+    
+}
 
 
 

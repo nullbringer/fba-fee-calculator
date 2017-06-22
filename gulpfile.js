@@ -25,7 +25,6 @@ gulp.task('clean', function () {
  
 gulp.task('compress', function (cb) {
     
-    console.log(cb);
   pump([
         gulp.src('src/**/*.js'),
         uglify(),

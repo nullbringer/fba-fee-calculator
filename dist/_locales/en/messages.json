@@ -16,9 +16,12 @@
         "message": "Please navigate to product page to use this extension."
     },
     "generalExceptionMsg":{
-        "message": "Something went wrong! Please reload the page!"
+        "message": "Something went wrong! Please reload the page properly!"
     },
     "dataExceptionMsg":{
         "message": "Required data is not provided by Amazon!"
+    },
+    "asinNotProvided":{
+        "message": "ASIN not found for this product!"
     }
 }

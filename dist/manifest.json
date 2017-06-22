@@ -26,7 +26,7 @@
     
   "content_scripts": [
     {
-      "matches": ["*://www.amazon.com/*"],
+      "matches": ["*://www.amazon.com/*","*://fmafront.sellwithamazon.com/*"],
       "js": ["js/jquery/jquery.min.js","src/inject/inject.js"]
     }
   ]
