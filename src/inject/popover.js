@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', function () {
            getProductDetails(tabs[0]);          
           
 
-      } else if(tabUrl.hostname === 'fmafront.sellwithamazon.com'){
+      } else if(tabUrl.hostname === 'fbamembersarea.com'){
           
           var pathArray = tabUrl.pathname.split( '/' );
           

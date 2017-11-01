@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "__MSG_appDesc__",
   "homepage_url": "https://github.com/urbangeek",
@@ -26,7 +26,7 @@
     
   "content_scripts": [
     {
-      "matches": ["*://www.amazon.com/*","*://fmafront.sellwithamazon.com/*"],
+      "matches": ["*://www.amazon.com/*","*://fbamembersarea.com/*"],
       "js": ["js/jquery/jquery.min.js","src/inject/inject.js"]
     }
   ]

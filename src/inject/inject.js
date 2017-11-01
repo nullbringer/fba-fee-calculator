@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
       
       var isAmazon = true;
       
-      if(window.location.hostname === 'fmafront.sellwithamazon.com'){
+      if(window.location.hostname === 'fbamembersarea.com'){
           isAmazon = false;
       }
       
@@ -57,7 +57,7 @@ function getAmazonProductDetails(isAmazon,asin,callback){
     var payload = JSON.stringify({"asin": asin});
     
     jQuery.ajax({
-        url: "xxx.com/price-checker-api/",
+        url: "https://xxx.com/price-checker-api/",
         type: "POST",
         data: payload,
         success: function (response) { 
@@ -75,7 +75,7 @@ function getAmazonProductDetails(isAmazon,asin,callback){
                         var summaryArea = jQuery('.summary');
                         
                         
-                        var prodCost = summaryArea.find('#Sale_Price').length>0? summaryArea.find('#Sale_Price').html() : summaryArea.find('#Retail_Price').html();       
+                        var prodCost = summaryArea.find('.Sale_Price').length>0? summaryArea.find('.Sale_Price').html() : summaryArea.find('.Retail_Price').html();       
                     
                         res.data.productCost = jQuery.trim(prodCost);
                         
